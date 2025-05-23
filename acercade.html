@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acerca de | Portal Artesanal</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    :root {
+      --main-bg: #fdf6f8;
+      --main-cyan: #4dd0e1;
+      --main-pink: #f8bbd0;
+      --main-dark: #22223b;
+      --main-white: #fff;
+    }
+    body { background: var(--main-bg); }
+    header {
+      background: linear-gradient(90deg, var(--main-cyan) 60%, var(--main-pink) 100%);
+      padding: 1rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    header h1, header h2 {
+      color: var(--main-white);
+      text-align: center;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 8px #22223b33;
+    }
+    nav {
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    nav a {
+      color: var(--main-white);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover, nav a.active {
+      background: var(--main-white);
+      color: var(--main-pink);
+    }
+    .footer-custom {
+      background: var(--main-dark);
+      color: var(--main-white);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    .footer-custom a { color: var(--main-pink); }
+    .footer-custom a:hover { color: var(--main-cyan); }
+    .text-main-cyan { color: var(--main-cyan); }
+    .text-main-pink { color: var(--main-pink); }
+    .text-main-dark { color: var(--main-dark); }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Acerca de</h2>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="compras.html">Compras</a></li>
+        <li><a class="active" href="acercade.html">Acerca de</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="container mt-5">
+      <h2 class="mb-4">Sobre Nosotros</h2>
+      <p class="lead">Somos un emprendimiento dedicado a la venta de productos artesanales hechos con pasión y dedicación. Nuestro objetivo es conectar a los artesanos locales con personas que valoran el trabajo hecho a mano y la autenticidad.</p>
+      <div class="row mb-5">
+        <div class="col-md-4 mb-4">
+          <div class="bg-white rounded shadow-sm p-4 h-100">
+            <h4 class="text-main-cyan">Misión</h4>
+            <p>Promover el arte y la cultura artesanal, ofreciendo productos únicos y de calidad, apoyando el desarrollo de comunidades creativas.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="bg-white rounded shadow-sm p-4 h-100">
+            <h4 class="text-main-pink">Visión</h4>
+            <p>Ser el portal de referencia para la compra de artesanías auténticas, impulsando el reconocimiento y la sostenibilidad de los artesanos.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="bg-white rounded shadow-sm p-4 h-100">
+            <h4 class="text-main-dark">Valores</h4>
+            <ul class="mb-0">
+              <li>Autenticidad</li>
+              <li>Compromiso social</li>
+              <li>Calidad</li>
+              <li>Respeto por la tradición</li>
+              <li>Innovación</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <h3 class="mb-4 text-center">Nuestro Equipo Artesano</h3>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card h-100 text-center">
+            <img src="../../Personas/personal1.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width:120px;height:120px;object-fit:cover;" alt="María López">
+            <div class="card-body">
+              <h5 class="card-title mb-1">María López</h5>
+              <p class="card-text small">Especialista en madera y tallado artístico.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card h-100 text-center">
+            <img src="../../Personas/avatar-gen8eaf3cfb0b0c13d43eb186245d0934ae.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width:120px;height:120px;object-fit:cover;" alt="Juana Pérez">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Juana Pérez</h5>
+              <p class="card-text small">Creador de flores y decoraciones ecológicas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card h-100 text-center">
+            <img src="../../Personas/avatar-gen9d336b49f655b0146056365b2a456f03.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width:120px;height:120px;object-fit:cover;" alt="Ana Torres">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Ana Torres</h5>
+              <p class="card-text small">Pintora de paisajes y cuadros artesanales.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 mb-4">
+          <div class="card h-100 text-center">
+            <img src="../../Personas/avatar-genbc0a11fde004fadc588e4a46e9800be6.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width:120px;height:120px;object-fit:cover;" alt="Carlos Ruiz">
+            <div class="card-body">
+              <h5 class="card-title mb-1">Carlos Ruiz</h5>
+              <p class="card-text small">Diseñador de arreglos con hojas y naturaleza.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer-custom">
+    <div>
+      <a href="#" class="me-3"><i class="bi bi-facebook"></i></a>
+      <a href="#" class="me-3"><i class="bi bi-instagram"></i></a>
+      <a href="#"><i class="bi bi-whatsapp"></i></a>
+    </div>
+    <small>&copy; 2025 Portal Artesanal. Todos los derechos reservados.</small>
+  </footer>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

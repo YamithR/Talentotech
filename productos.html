@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal Artesanal</title>
+  <title>Productos | Portal Artesanal</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/estilos.css">
-  <!-- Bootstrap Icons CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
     :root {
-      --main-bg: #f3f0f7;
+      --main-bg: #f7fafd;
       --main-cyan: #00bcd4;
-      --main-pink: #f8bbd0;
-      --main-dark: #22223b;
+      --main-pink: #f48fb1;
+      --main-dark: #263238;
       --main-white: #fff;
     }
     body { background: var(--main-bg); }
@@ -22,11 +21,11 @@
       padding: 1rem 0;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
-    header h1 {
+    header h1, header h2 {
       color: var(--main-white);
       text-align: center;
       margin-bottom: 1rem;
-      text-shadow: 1px 1px 8px #22223b33;
+      text-shadow: 1px 1px 8px #26323833;
     }
     nav {
       text-align: center;
@@ -63,11 +62,11 @@
 </head>
 <body>
   <header>
-    <h1>Bienvenido al Portal de Productos Artesanales</h1>
+    <h2>Productos</h2>
     <nav>
       <ul>
-        <li><a class="active" href="index.html">Inicio</a></li>
-        <li><a href="productos.html">Productos</a></li>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a class="active" href="productos.html">Productos</a></li>
         <li><a href="compras.html">Compras</a></li>
         <li><a href="acercade.html">Acerca de</a></li>
         <li><a href="contacto.html">Contacto</a></li>
@@ -76,18 +75,8 @@
   </header>
   <main>
     <section class="container mt-5">
-      <div class="row align-items-center">
-        <div class="col-md-6 mb-4 mb-md-0">
-          <h2 class="display-5 fw-bold">Bienvenido al Portal de Productos Artesanales</h2>
-          <p class="lead">Descubre productos únicos hechos a mano, apoya a los artesanos locales y vive la experiencia de comprar auténtico arte.</p>
-        </div>
-        <div class="col-md-6 text-center">
-          <img src="assets/img/arbol.jpg" alt="Productos artesanales" class="img-fluid rounded shadow-lg">
-        </div>
-      </div>
-      <hr class="my-5">
-      <h2 class="mb-4">Productos Destacados</h2>
-      <div id="productos-destacados" class="row g-4"></div>
+      <h2 class="mb-4">Todos los Productos</h2>
+      <div id="listado-productos" class="row row-cols-1 row-cols-md-3 g-4"></div>
     </section>
   </main>
   <footer class="footer-custom">

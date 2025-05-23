@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('fade-in');
   cargarHeader();
   cargarFooter();
+  cargarCarritoDesdeStorage();
+  setTimeout(() => {
+    asegurarIconoCarrito();
+    actualizarContadorCarrito();
+  }, 0);
 
   const links = document.querySelectorAll('nav a');
   links.forEach(link => {
@@ -29,9 +34,9 @@ function cargarHeader() {
   const header = document.getElementById('main-header');
   if (header) {
     header.innerHTML = `
-      <nav class="navbar navbar-expand-lg navbar-dark" style="background:#a67c52;">
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background:#2d3e50;">
         <div class="container">
-          <a class="navbar-brand" href="index.html">Artesanal</a>
+          <a class="navbar-brand" href="index.html">Tienda Electrónica</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -39,7 +44,7 @@ function cargarHeader() {
             <ul class="navbar-nav ms-auto">
               <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
               <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
-              <li class="nav-item"><a class="nav-link" href="compras.html">Compras</a></li>
+              <li class="nav-item"><a class="nav-link" href="compras.html">Carrito</a></li>
               <li class="nav-item"><a class="nav-link" href="acercade.html">Acerca de</a></li>
               <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
             </ul>
@@ -55,7 +60,7 @@ function cargarFooter() {
   if (footer) {
     footer.innerHTML = `
       <div class="container">
-        <p>&copy; 2025 Portal Artesanal. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Tienda Electrónica. Todos los derechos reservados.</p>
       </div>
     `;
   }
@@ -65,38 +70,87 @@ function cargarFooter() {
 const productos = [
   {
     id: 1,
-    nombre: "Artesanía de Madera",
-    precio: 35000,
-    imagen: "../../Imagenes/arbol.jpg",
-    descripcion: "Figura artesanal tallada en madera."
+    nombre: "Arduino Uno R3",
+    precio: 65000,
+    imagen: "../assets/img/dispositivos/Arduino Uno R3 Atmega328p Con Driver Ch340g + Cable Usb.png",
+    descripcion: "Microcontrolador ATmega328P con cable USB. Ideal para proyectos de electrónica y automatización."
   },
   {
     id: 2,
-    nombre: "Flor Decorativa",
-    precio: 18000,
-    imagen: "../../Imagenes/flor.jpg",
-    descripcion: "Flor hecha a mano con materiales reciclados."
+    nombre: "NodeMCU ESP8266",
+    precio: 35000,
+    imagen: "../assets/img/dispositivos/Modulo Wifi Ch340 V3 Nodemcu Esp8266 Para Arduino Wi-fi.png",
+    descripcion: "Módulo Wi-Fi para IoT, compatible con Arduino y MicroPython."
   },
   {
     id: 3,
-    nombre: "Atardecer Pintado",
-    precio: 42000,
-    imagen: "../../Imagenes/atardecer.jpg",
-    descripcion: "Cuadro pintado a mano de un atardecer."
+    nombre: "Motor Controlador L298N",
+    precio: 18000,
+    imagen: "../assets/img/dispositivos/Motor controlador de puente doble H L298n - Esp8266 Arduino Raspberry.png",
+    descripcion: "Controlador de motores doble H para robótica y automatización."
   },
   {
     id: 4,
-    nombre: "Hojas Secas Decorativas",
+    nombre: "Sensor de Voltaje DC 0-25V",
     precio: 12000,
-    imagen: "../../Imagenes/hojas.jpg",
-    descripcion: "Ramo de hojas secas para decoración."
+    imagen: "../assets/img/dispositivos/Módulo de sensor de voltaje DC 0-25 V para Arduino Pic y Raspberr.png",
+    descripcion: "Módulo sensor de voltaje para monitoreo de proyectos electrónicos."
   },
   {
     id: 5,
-    nombre: "Fotografía de Playa",
+    nombre: "Sensor de Gas MQ-4",
+    precio: 15000,
+    imagen: "../assets/img/dispositivos/Sensor de gas metano butano Mq-4 10x para Arduino Raspberry Galileo.png",
+    descripcion: "Sensor de gas metano y butano para sistemas de seguridad."
+  },
+  {
+    id: 6,
+    nombre: "Sensor PIR HC-SR501",
+    precio: 9000,
+    imagen: "../assets/img/dispositivos/Sensor De Movimiento Infrarrojo Pir Hc-sr501.png",
+    descripcion: "Sensor de movimiento infrarrojo para alarmas y automatización."
+  },
+  {
+    id: 7,
+    nombre: "Sensor de Vibración Piezoeléctrico",
+    precio: 8000,
+    imagen: "../assets/img/dispositivos/Sensor De Vibracion Piezoelectrico.png",
+    descripcion: "Sensor de vibración para detección de golpes y movimientos."
+  },
+  {
+    id: 8,
+    nombre: "Sensor de Calidad del Aire MQ-135",
+    precio: 17000,
+    imagen: "../assets/img/dispositivos/Sensor Mq-135 Mq135 Calidad Del Aire.png",
+    descripcion: "Sensor para monitoreo de calidad del aire y gases nocivos."
+  },
+  {
+    id: 9,
+    nombre: "Sensor Ultrasónico HC-SR04",
+    precio: 10000,
+    imagen: "../assets/img/dispositivos/Sensor Ultrasonico Ultrasonido Hc-sr04 Arduino Pic Robotica.png",
+    descripcion: "Sensor ultrasónico de distancia para robótica y medición."
+  },
+  {
+    id: 10,
+    nombre: "Servomotor SG90 9G",
+    precio: 11000,
+    imagen: "../assets/img/dispositivos/Servomotor SG90 9G 180 grados 1.6kg torque.png",
+    descripcion: "Servomotor 9G, 180 grados, ideal para proyectos de robótica."
+  },
+  {
+    id: 11,
+    nombre: "Brazo Robótico CAD",
+    precio: 120000,
+    imagen: "../assets/img/diseñosCAD/Brazo Robotico.jpg",
+    descripcion: "Modelo CAD de brazo robótico para impresión 3D y prototipado."
+  },
+  {
+    id: 12,
+    nombre: "Eslabón 1 CAD",
     precio: 25000,
-    imagen: "../../Imagenes/playa.jpg",
-    descripcion: "Fotografía artística de una playa."
+    imagen: "../assets/img/diseñosCAD/Eslabon1.jpg",
+    descripcion: "Pieza de eslabón para ensamblaje de robots y mecanismos."
   }
 ];
 
@@ -170,7 +224,41 @@ function renderProductosDestacados() {
 }
 
 // Carrito de compras simulado
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+let carrito = [];
+
+function cargarCarritoDesdeStorage() {
+  try {
+    const data = localStorage.getItem('carrito');
+    carrito = data ? JSON.parse(data) : [];
+  } catch (e) {
+    carrito = [];
+  }
+}
+
+function guardarCarritoEnStorage() {
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+function asegurarIconoCarrito() {
+  let contador = document.getElementById('contador-carrito');
+  if (!contador) {
+    const nav = document.querySelector('nav ul');
+    if (nav) {
+      let li = document.createElement('li');
+      li.innerHTML = `<a href="compras.html"><i class="bi bi-cart"></i> <span id="contador-carrito" style="background:#00bcd4;color:#fff;border-radius:50%;padding:2px 8px;font-size:0.9em;">0</span></a>`;
+      nav.appendChild(li);
+    }
+  }
+}
+
+function actualizarContadorCarrito() {
+  asegurarIconoCarrito();
+  let contador = document.getElementById('contador-carrito');
+  if (contador) {
+    const total = carrito.reduce((acc, p) => acc + p.cantidad, 0);
+    contador.textContent = total;
+  }
+}
 
 function agregarAlCarrito(id) {
   const producto = productos.find(p => p.id === id);
@@ -181,7 +269,7 @@ function agregarAlCarrito(id) {
   } else {
     carrito.push({ ...producto, cantidad: 1 });
   }
-  localStorage.setItem('carrito', JSON.stringify(carrito));
+  guardarCarritoEnStorage();
   mostrarNotificacion('Producto agregado al carrito');
   actualizarContadorCarrito();
 }
@@ -205,23 +293,6 @@ function mostrarNotificacion(msg) {
   notif.textContent = msg;
   notif.style.display = 'block';
   setTimeout(() => { notif.style.display = 'none'; }, 1200);
-}
-
-function actualizarContadorCarrito() {
-  let contador = document.getElementById('contador-carrito');
-  if (!contador) {
-    const nav = document.querySelector('nav ul');
-    if (nav) {
-      const li = document.createElement('li');
-      li.innerHTML = `<a href="compras.html"><i class="bi bi-cart"></i> <span id="contador-carrito" style="background:#00bcd4;color:#fff;border-radius:50%;padding:2px 8px;font-size:0.9em;">0</span></a>`;
-      nav.appendChild(li);
-      contador = document.getElementById('contador-carrito');
-    }
-  }
-  if (contador) {
-    const total = carrito.reduce((acc, p) => acc + p.cantidad, 0);
-    contador.textContent = total;
-  }
 }
 
 function renderCarrito() {
@@ -257,7 +328,7 @@ function cambiarCantidad(id, cantidad) {
   const item = carrito.find(p => p.id === id);
   if (item) {
     item.cantidad = Math.max(1, parseInt(cantidad) || 1);
-    localStorage.setItem('carrito', JSON.stringify(carrito));
+    guardarCarritoEnStorage();
     renderCarrito();
     actualizarContadorCarrito();
   }
@@ -265,7 +336,7 @@ function cambiarCantidad(id, cantidad) {
 
 function eliminarDelCarrito(id) {
   carrito = carrito.filter(p => p.id !== id);
-  localStorage.setItem('carrito', JSON.stringify(carrito));
+  guardarCarritoEnStorage();
   renderCarrito();
   actualizarContadorCarrito();
 }
@@ -299,6 +370,9 @@ if (document.getElementById('productos-destacados')) {
   renderProductosDestacados();
 }
 if (window.location.pathname.includes('compras.html')) {
+  cargarCarritoDesdeStorage();
   renderCarrito();
 }
+cargarCarritoDesdeStorage();
+asegurarIconoCarrito();
 actualizarContadorCarrito();
